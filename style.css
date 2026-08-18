@@ -141,3 +141,10 @@ footer {
 footer p {
     margin: 8px 0;
 }
+/* Si quieres que el logo se vea perfectamente circular en la sección hero */
+.hero-content img {
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: white; /* Da un marco limpio si el fondo de la imagen es blanco */
+    padding: 5px;
+}
