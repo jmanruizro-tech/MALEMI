@@ -59,12 +59,12 @@ nav ul li a:hover {
     text-align: center;
     padding: 80px 20px;
     position: relative;
-    overflow: hidden; /* Mantiene las huellas dentro de esta sección */
+    overflow: hidden; 
 }
 
 .hero-content {
     position: relative;
-    z-index: 2; /* Texto siempre por encima de las huellas */
+    z-index: 2; 
 }
 
 .hero-content h1 {
@@ -90,7 +90,7 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 
-/* --- Animación Realista de Huellitas (Elegante) --- */
+/* --- Animación Aleatoria de Huellitas --- */
 .paws-animation {
     position: absolute;
     top: 0;
@@ -98,38 +98,56 @@ nav ul li a:hover {
     width: 100%;
     height: 100%;
     z-index: 1;
-    pointer-events: none; /* Los clics traspasan las huellas hacia el botón */
+    pointer-events: none; 
 }
 
 .paw {
     position: absolute;
     opacity: 0;
-    /* Filtro para quitar el color del emoji nativo y hacerlo ver como marca de agua sutil */
-    filter: grayscale(100%) opacity(0.25) sepia(100%) hue-rotate(220deg);
-    animation: walk 8s linear infinite;
+    filter: grayscale(100%) opacity(0.20) sepia(100%) hue-rotate(220deg);
+    /* Ciclo largo (12s) para que no todas aparezcan al mismo tiempo */
+    animation: random-walk 12s infinite;
 }
 
-/* Camino 1: Perro (Grande, subiendo por la izquierda) */
-.paw-dog1 { bottom: 5%; left: 8%; transform: rotate(15deg); animation-delay: 0s; font-size: 3rem; }
-.paw-dog2 { bottom: 20%; left: 15%; transform: rotate(25deg); animation-delay: 0.6s; font-size: 3rem; }
-.paw-dog3 { bottom: 35%; left: 10%; transform: rotate(15deg); animation-delay: 1.2s; font-size: 3rem; }
-.paw-dog4 { bottom: 50%; left: 18%; transform: rotate(30deg); animation-delay: 1.8s; font-size: 3rem; }
-.paw-dog5 { bottom: 65%; left: 12%; transform: rotate(20deg); animation-delay: 2.4s; font-size: 3rem; }
-.paw-dog6 { bottom: 80%; left: 20%; transform: rotate(35deg); animation-delay: 3.0s; font-size: 3rem; }
+/* Tamaños Base */
+.paw-large { font-size: 3.5rem; }
+.paw-small { font-size: 1.5rem; }
 
-/* Camino 2: Gato (Pequeño, bajando cruzado por la derecha) */
-.paw-cat1 { top: 10%; right: 15%; transform: rotate(-120deg); animation-delay: 3.5s; font-size: 1.5rem; }
-.paw-cat2 { top: 25%; right: 22%; transform: rotate(-130deg); animation-delay: 3.9s; font-size: 1.5rem; }
-.paw-cat3 { top: 40%; right: 18%; transform: rotate(-110deg); animation-delay: 4.3s; font-size: 1.5rem; }
-.paw-cat4 { top: 55%; right: 25%; transform: rotate(-125deg); animation-delay: 4.7s; font-size: 1.5rem; }
-.paw-cat5 { top: 70%; right: 20%; transform: rotate(-115deg); animation-delay: 5.1s; font-size: 1.5rem; }
-.paw-cat6 { top: 85%; right: 28%; transform: rotate(-135deg); animation-delay: 5.5s; font-size: 1.5rem; }
+/* --- PERRO RUTA 1 (Subiendo por la Izquierda) --- */
+.p-l1 { bottom: 5%; left: 8%; transform: rotate(15deg); animation-delay: 0s; }
+.p-l2 { bottom: 22%; left: 14%; transform: rotate(25deg); animation-delay: 0.7s; }
+.p-l3 { bottom: 39%; left: 10%; transform: rotate(10deg); animation-delay: 1.4s; }
+.p-l4 { bottom: 55%; left: 16%; transform: rotate(20deg); animation-delay: 2.1s; }
 
-/* Efecto de aparecer (pisar) y desaparecer gradualmente */
-@keyframes walk {
-    0%   { opacity: 0; }
-    10%  { opacity: 1; }
-    30%  { opacity: 0; }
+/* --- GATO RUTA 1 (Bajando por la Derecha) --- */
+.p-s1 { top: 10%; right: 15%; transform: rotate(-120deg); animation-delay: 1.5s; }
+.p-s2 { top: 25%; right: 22%; transform: rotate(-130deg); animation-delay: 2.0s; }
+.p-s3 { top: 40%; right: 18%; transform: rotate(-110deg); animation-delay: 2.5s; }
+.p-s4 { top: 55%; right: 25%; transform: rotate(-125deg); animation-delay: 3.0s; }
+
+/* --- PERRO RUTA 2 (Explorando la Derecha abajo) --- */
+.p-l5 { bottom: 15%; right: 8%; transform: rotate(-45deg); animation-delay: 4.5s; }
+.p-l6 { bottom: 25%; right: 16%; transform: rotate(-35deg); animation-delay: 5.2s; }
+.p-l7 { bottom: 18%; right: 25%; transform: rotate(-55deg); animation-delay: 5.9s; }
+.p-l8 { bottom: 30%; right: 32%; transform: rotate(-40deg); animation-delay: 6.6s; }
+
+/* --- GATO RUTA 2 (Zigzag Izquierda arriba) --- */
+.p-s5 { top: 15%; left: 25%; transform: rotate(70deg); animation-delay: 6.0s; }
+.p-s6 { top: 25%; left: 30%; transform: rotate(85deg); animation-delay: 6.5s; }
+.p-s7 { top: 35%; left: 23%; transform: rotate(65deg); animation-delay: 7.0s; }
+.p-s8 { top: 45%; left: 28%; transform: rotate(80deg); animation-delay: 7.5s; }
+
+/* --- HUELLAS DISPERSAS (Aparecen esporádicamente en el centro) --- */
+.p-rand1 { top: 60%; left: 45%; transform: rotate(15deg); animation-delay: 3.8s; }
+.p-rand2 { top: 30%; left: 55%; transform: rotate(-25deg); animation-delay: 8.4s; }
+.p-rand3 { bottom: 25%; left: 40%; transform: rotate(45deg); animation-delay: 9.7s; }
+.p-rand4 { top: 20%; right: 40%; transform: rotate(-15deg); animation-delay: 11.2s; }
+
+/* Efecto de marcado y desvanecimiento (12 segundos en total) */
+@keyframes random-walk {
+    0%   { opacity: 0; transform: scale(0.9); }
+    5%   { opacity: 1; transform: scale(1); } /* Aparece la pisada */
+    20%  { opacity: 0; } /* Se desvanece lentamente */
     100% { opacity: 0; }
 }
 
@@ -210,15 +228,9 @@ footer p {
 
 /* Ajustes responsivos para móviles */
 @media (max-width: 768px) {
-    .paw-dog1, .paw-dog2, .paw-dog3, .paw-dog4, .paw-dog5, .paw-dog6 { font-size: 2.2rem; }
-    .paw-cat1, .paw-cat2, .paw-cat3, .paw-cat4, .paw-cat5, .paw-cat6 { font-size: 1.2rem; }
+    .paw-large { font-size: 2.2rem; }
+    .paw-small { font-size: 1.2rem; }
     
-    .hero {
-        padding: 60px 15px;
-    }
-    
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
+    .hero { padding: 60px 15px; }
+    nav { flex-direction: column; gap: 15px; }
 }
