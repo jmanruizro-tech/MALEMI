@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
-    color: #2D3748; /* Texto principal en gris carbón elegante */
+    color: #2D3748;
     line-height: 1.6;
 }
 
@@ -31,7 +31,7 @@ nav {
     align-items: center;
     font-size: 1.3rem;
     font-weight: 700;
-    color: #4A3375; /* Morado institucional oscuro */
+    color: #4A3375;
 }
 
 nav ul {
@@ -50,48 +50,47 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #6B46C1; /* Morado brillante al pasar el cursor */
+    color: #6B46C1;
 }
 
-/* Sección Hero (Inicio con degradado en tonos lavanda y morados suaves) */
+/* Sección Hero */
 .hero {
     background: linear-gradient(135deg, #F3F0FF, #E9D8FD);
     text-align: center;
     padding: 80px 20px;
-    position: relative; /* Necesario para contener las huellas */
-    overflow: hidden;   /* Evita que se genere scroll horizontal en móviles */
+    position: relative;
+    overflow: hidden; /* Mantiene las huellas dentro de esta sección */
 }
 
 .hero-content {
     position: relative;
-    z-index: 2; /* Mantiene el texto y botón por encima de la animación */
+    z-index: 2; /* Texto siempre por encima de las huellas */
 }
 
 .hero-content h1 {
     font-size: 2.5rem;
-    color: #322659; /* Morado profundo para máxima jerarquía */
+    color: #322659;
     margin-bottom: 15px;
 }
 
 .hero-content p {
     font-size: 1.2rem;
-    color: #553C9A; /* Tono intermedio complementario */
+    color: #553C9A;
     margin-bottom: 25px;
 }
 
-/* Estilo optimizado para el logotipo circular en la sección hero */
 .hero-content img {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    object-fit: cover; /* Evita recortes extraños y ajusta la imagen al círculo */
+    object-fit: cover;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     background-color: white;
-    border: 3px solid white; /* Delimita limpiamente el logotipo */
+    border: 3px solid white;
     margin-bottom: 20px;
 }
 
-/* --- Animación Elegante de Huellitas --- */
+/* --- Animación Realista de Huellitas (Elegante) --- */
 .paws-animation {
     position: absolute;
     top: 0;
@@ -99,41 +98,42 @@ nav ul li a:hover {
     width: 100%;
     height: 100%;
     z-index: 1;
-    pointer-events: none; /* Asegura que el usuario pueda hacer clic en el botón sin problemas */
+    pointer-events: none; /* Los clics traspasan las huellas hacia el botón */
 }
 
 .paw {
     position: absolute;
-    font-size: 2.5rem;
-    color: transparent; /* Oculta el emoji original */
-    text-shadow: 0 0 0 rgba(107, 70, 193, 0.12); /* Proyecta una sombra morada muy sutil y corporativa */
     opacity: 0;
-    animation: footprint 7s infinite;
+    /* Filtro para quitar el color del emoji nativo y hacerlo ver como marca de agua sutil */
+    filter: grayscale(100%) opacity(0.25) sepia(100%) hue-rotate(220deg);
+    animation: walk 8s linear infinite;
 }
 
-/* Posicionamiento y rotación para el Camino 1 (Mascota grande subiendo por la izquierda) */
-.paw1 { bottom: -5%; left: 10%; transform: rotate(15deg); animation-delay: 0s; }
-.paw2 { bottom: 15%; left: 20%; transform: rotate(35deg); animation-delay: 0.8s; }
-.paw3 { bottom: 35%; left: 12%; transform: rotate(10deg); animation-delay: 1.6s; }
-.paw4 { bottom: 55%; left: 22%; transform: rotate(30deg); animation-delay: 2.4s; }
-.paw5 { bottom: 75%; left: 15%; transform: rotate(15deg); animation-delay: 3.2s; }
-.paw6 { bottom: 95%; left: 25%; transform: rotate(35deg); animation-delay: 4.0s; }
+/* Camino 1: Perro (Grande, subiendo por la izquierda) */
+.paw-dog1 { bottom: 5%; left: 8%; transform: rotate(15deg); animation-delay: 0s; font-size: 3rem; }
+.paw-dog2 { bottom: 20%; left: 15%; transform: rotate(25deg); animation-delay: 0.6s; font-size: 3rem; }
+.paw-dog3 { bottom: 35%; left: 10%; transform: rotate(15deg); animation-delay: 1.2s; font-size: 3rem; }
+.paw-dog4 { bottom: 50%; left: 18%; transform: rotate(30deg); animation-delay: 1.8s; font-size: 3rem; }
+.paw-dog5 { bottom: 65%; left: 12%; transform: rotate(20deg); animation-delay: 2.4s; font-size: 3rem; }
+.paw-dog6 { bottom: 80%; left: 20%; transform: rotate(35deg); animation-delay: 3.0s; font-size: 3rem; }
 
-/* Posicionamiento y rotación para el Camino 2 (Mascota pequeña bajando por la derecha) */
-.paw7 { top: 15%; right: 10%; transform: rotate(-130deg) scale(0.7); animation-delay: 1.5s; }
-.paw8 { top: 35%; right: 20%; transform: rotate(-110deg) scale(0.7); animation-delay: 2.3s; }
-.paw9 { top: 55%; right: 12%; transform: rotate(-140deg) scale(0.7); animation-delay: 3.1s; }
+/* Camino 2: Gato (Pequeño, bajando cruzado por la derecha) */
+.paw-cat1 { top: 10%; right: 15%; transform: rotate(-120deg); animation-delay: 3.5s; font-size: 1.5rem; }
+.paw-cat2 { top: 25%; right: 22%; transform: rotate(-130deg); animation-delay: 3.9s; font-size: 1.5rem; }
+.paw-cat3 { top: 40%; right: 18%; transform: rotate(-110deg); animation-delay: 4.3s; font-size: 1.5rem; }
+.paw-cat4 { top: 55%; right: 25%; transform: rotate(-125deg); animation-delay: 4.7s; font-size: 1.5rem; }
+.paw-cat5 { top: 70%; right: 20%; transform: rotate(-115deg); animation-delay: 5.1s; font-size: 1.5rem; }
+.paw-cat6 { top: 85%; right: 28%; transform: rotate(-135deg); animation-delay: 5.5s; font-size: 1.5rem; }
 
-/* Secuencia de aparición y desvanecimiento progresivo */
-@keyframes footprint {
+/* Efecto de aparecer (pisar) y desaparecer gradualmente */
+@keyframes walk {
     0%   { opacity: 0; }
-    15%  { opacity: 1; }
-    40%  { opacity: 1; }
-    60%  { opacity: 0; }
+    10%  { opacity: 1; }
+    30%  { opacity: 0; }
     100% { opacity: 0; }
 }
 
-/* Botón de WhatsApp (Mantiene el verde característico para alta conversión) */
+/* Botón de WhatsApp */
 .btn {
     display: inline-block;
     background-color: #25d366;
@@ -143,11 +143,12 @@ nav ul li a:hover {
     text-decoration: none;
     font-weight: 700;
     box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .btn:hover {
     background-color: #1ebe5d;
+    transform: translateY(-2px);
 }
 
 /* Sección de Servicios */
@@ -175,7 +176,7 @@ nav ul li a:hover {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-top: 4px solid #805AD5; /* Detalle superior en tono morado */
+    border-top: 4px solid #805AD5;
     transition: transform 0.3s;
 }
 
@@ -194,7 +195,7 @@ nav ul li a:hover {
     margin-bottom: 10px;
 }
 
-/* Pie de página (Contacto) con morado oscuro institucional */
+/* Pie de página */
 footer {
     background-color: #2D1A4E;
     color: white;
@@ -207,7 +208,17 @@ footer p {
     margin: 8px 0;
 }
 
-/* --- Ajuste para móviles --- */
+/* Ajustes responsivos para móviles */
 @media (max-width: 768px) {
-    .paw { font-size: 2rem; } /* Escala las huellas un poco más pequeñas en celular */
+    .paw-dog1, .paw-dog2, .paw-dog3, .paw-dog4, .paw-dog5, .paw-dog6 { font-size: 2.2rem; }
+    .paw-cat1, .paw-cat2, .paw-cat3, .paw-cat4, .paw-cat5, .paw-cat6 { font-size: 1.2rem; }
+    
+    .hero {
+        padding: 60px 15px;
+    }
+    
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
